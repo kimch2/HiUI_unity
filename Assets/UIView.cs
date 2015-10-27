@@ -5,19 +5,24 @@ namespace HiUI
     public class UIView : MonoBehaviour
     {
         private delegate void ButtonDelegate();
-        private Dictionary<string, ButtonDelegate> _buttonDelegateList = new Dictionary<string, ButtonDelegate>();
+        private Dictionary<string, ButtonDelegate> buttonDelegateList = new Dictionary<string, ButtonDelegate>();
         void Start()
         {
-            _buttonDelegateList.Add("button", OnLog);
+            buttonDelegateList.Add("button", OnTest);
+
+
+
+
+
         }
         public void OnButtonClick(string _key)
         {
-            if (_buttonDelegateList.ContainsKey(_key))
-                _buttonDelegateList[_key]();
+            if (buttonDelegateList.ContainsKey(_key))
+                buttonDelegateList[_key]();
         }
-        private void OnLog()
+        private void OnTest()
         {
-            Debug.Log("do");
+            Debug.Log("excute");
         }
     }
 
