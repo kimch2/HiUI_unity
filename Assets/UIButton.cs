@@ -21,6 +21,7 @@ public class UIButton : MonoBehaviour
     }
     string GetPath(Transform _trans)
     {
+        path = string.Empty;
         if (_trans.parent)
             GetParentPath(_trans.parent);
 

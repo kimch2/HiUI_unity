@@ -11,11 +11,11 @@ namespace HiUI
         [MenuItem("UI/显示路径")]
         static void ShowTransformPath()
         {
-            path = string.Empty;
             Debug.Log(GetPath(Selection.activeTransform));
         }
         static string GetPath(Transform _trans)
         {
+            path = string.Empty;
             if (_trans.parent)
                 GetParentPath(_trans.parent);
 
