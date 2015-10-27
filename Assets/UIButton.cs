@@ -11,12 +11,13 @@ public class UIButton : MonoBehaviour
         if (_bt)
             _bt.onClick.AddListener(ButtonMessage);
     }
-
     void ButtonMessage()
     {
         UIView _uiView = GetComponentInParent<UIView>();
         if (_uiView)
             _uiView.OnButtonClick(GetPath(transform));
+        else
+            Debug.LogWarning("please attach uiview to any parent gameobject");
     }
     string GetPath(Transform _trans)
     {
@@ -33,6 +34,3 @@ public class UIButton : MonoBehaviour
             GetParentPath(_trans.parent);
     }
 }
-
-
-

@@ -15,16 +15,23 @@ namespace HiUI
 
 
         }
+        void RegisterMethod()
+        {
+
+
+
+
+        }
         public void OnButtonClick(string _key)
         {
             if (buttonDelegateList.ContainsKey(_key))
                 buttonDelegateList[_key]();
+            else
+                Debug.LogWarning("please register method");
         }
         private void OnTest()
         {
             Debug.Log("excute");
         }
     }
-
-
 }

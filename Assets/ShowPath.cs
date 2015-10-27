@@ -1,6 +1,8 @@
-﻿using UnityEditor;
+﻿/// <summary>
+/// for美工/策划编辑ui时使用
+/// </summary>
+using UnityEditor;
 using UnityEngine;
-
 namespace HiUI
 {
     public class ShowPath
