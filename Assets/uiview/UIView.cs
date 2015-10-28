@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System;
 namespace HiUI
 {
-    public class UIView : MonoBehaviour
+    public abstract class UIView : MonoBehaviour
     {
+        protected string path;
         protected Animator animator;
         protected Dictionary<string, Action> buttonEvenList = new Dictionary<string, Action>();
         /// <summary>
@@ -13,30 +14,26 @@ namespace HiUI
         void Start()
         {
             animator = GetComponent<Animator>();
+            Init();
             RegisterMethod();
             StartViewAnimation();
         }
         /// <summary>
+        /// 
+        /// </summary>
+        protected abstract void Init();
+        /// <summary>
         /// 子类注册方法
         /// </summary>
-        public virtual void RegisterMethod()
-        {
-
-        }
+        protected abstract void RegisterMethod();
         /// <summary>
         /// 面板弹出动画
         /// </summary>
-        public virtual void StartViewAnimation()
-        {
-
-        }
+        protected abstract void StartViewAnimation();
         /// <summary>
         /// 面板关闭动画
         /// </summary>
-        public virtual void ExistViewAnimation()
-        {
-
-        }
+        protected abstract void ExistViewAnimation();
         public void OnButtonClick(string _key)
         {
             if (buttonEvenList.ContainsKey(_key))

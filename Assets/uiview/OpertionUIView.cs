@@ -9,9 +9,17 @@ namespace HiUI
     /// </summary>
     public class OpertionUIView : UIView
     {
-        public override void RegisterMethod()
+        protected override void Init()
+        {
+            path = "Resources/ui/opertionPanel";
+        }
+        protected override void RegisterMethod()
         {
             buttonEvenList.Add("Canvas/Button", OnButtonMusic);
+        }
+        protected override void StartViewAnimation()
+        {
+            animator.Play("GameUIViewStartAnimation");
         }
         /// <summary>
         /// 游戏背景音乐开关
@@ -24,13 +32,8 @@ namespace HiUI
         {
 
         }
-        /// <summary>
-        /// 面板弹出动画
-        /// </summary>
-        public override void StartViewAnimation()
-        {
-            animator.Play("GameUIViewStartAnimation");
-        }
+
+
         /// <summary>
         /// 面板关闭动画
         /// </summary>
@@ -38,6 +41,8 @@ namespace HiUI
         {
             animator.Play("GameUIViewExistAnimation");
         }
+
+
     }
 }
 

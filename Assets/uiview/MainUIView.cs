@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
 
 namespace HiUI
 {
     public class MainUIView : UIView
     {
-        public override void RegisterMethod()
+        protected override void Init()
         {
-
+            path = "Resources/ui/mainui";
         }
-        void OnButtonTest()
-        {
 
+        protected override void RegisterMethod()
+        {
+        }
+
+        protected override void StartViewAnimation()
+        {
         }
     }
 }
