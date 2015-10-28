@@ -40,10 +40,7 @@ namespace HiUI
         /// <summary>
         /// 面板动画播放完毕后隐藏面板
         /// </summary>
-        protected void CloseViewCallBack()
-        {
-            gameObject.SetActive(false);
-        }
+        protected abstract void CloseViewCallBack();
         public void OnButtonClick(string _key)
         {
             if (buttonEvenList.ContainsKey(_key))

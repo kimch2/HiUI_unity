@@ -26,6 +26,10 @@ namespace HiUI
         void OnButtonOpertion()
         {
             CloseView();
+
+        }
+        protected override void CloseViewCallBack()
+        {
             UIViewManager.Instance.OpenUIView(UIViewManager.Instance.opertionView);
         }
     }

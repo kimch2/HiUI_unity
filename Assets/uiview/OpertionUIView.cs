@@ -31,6 +31,9 @@ namespace HiUI
             CloseView();
             UIViewManager.Instance.OpenUIView(UIViewManager.Instance.mainView);
         }
+        protected override void CloseViewCallBack()
+        {
+        }
     }
 }
 
