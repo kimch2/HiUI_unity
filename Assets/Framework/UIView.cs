@@ -23,11 +23,24 @@ namespace HiUI
         /// <summary>
         /// 面板弹出动画
         /// </summary>
-        protected abstract void StartViewAnimation();
+        public void StartViewAnimation()
+        {
+            animator.Play("Start");
+        }
         /// <summary>
         /// 面板关闭动画
         /// </summary>
-        protected abstract void ExistViewAnimation();
+        public void ExistViewAnimation()
+        {
+            animator.Play("Exist");
+        }
+        /// <summary>
+        /// 面板动画播放完毕后隐藏面板
+        /// </summary>
+        protected void ExistViewAnimationCallBack()
+        {
+            gameObject.SetActive(false);
+        }
         public void OnButtonClick(string _key)
         {
             if (buttonEvenList.ContainsKey(_key))

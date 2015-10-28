@@ -10,18 +10,6 @@ namespace HiUI
         {
         }
 
-        protected override void StartViewAnimation()
-        {
-        }
-        protected override void ExistViewAnimation()
-        {
-        }
-
-
-
-
-
-
         void test()
         {
             UIViewManager.Instance.OnUIView(UIViewManager.Instance.mainView);

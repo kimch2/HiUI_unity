@@ -17,14 +17,19 @@ public class UIViewManager : Singleton<UIViewManager>
             UIView uiView = go.GetComponent<UIView>();
             uiViewList.Add(_path, uiView);
         }
-        Open(uiViewList[_path]);
+        OpenUIView(uiViewList[_path]);
     }
-
-
-
-    void Open(UIView _uiView)
+    void OpenUIView(UIView _uiView)
     {
-
+        _uiView.gameObject.SetActive(true);
+        _uiView.StartViewAnimation();
+        foreach (KeyValuePair<UIViewPath, UIView> uiView in uiViewList)
+        {
+            if ((uiView.Value != _uiView) && (uiView.Value.gameObject.activeSelf))
+            {
+                uiView.Value.ExistViewAnimation();
+            }
+        }
     }
 
 

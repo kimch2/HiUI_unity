@@ -12,28 +12,18 @@ namespace HiUI
         protected override void RegisterMethod()
         {
             buttonEvenList.Add("Canvas/Button", OnButtonMusic);
-        }
-        protected override void StartViewAnimation()
-        {
-            animator.Play("GameUIViewStartAnimation");
-        }
-        /// <summary>
-        /// 面板关闭动画
-        /// </summary>
-        protected override void ExistViewAnimation()
-        {
-            animator.Play("GameUIViewExistAnimation");
+            buttonEvenList.Add("Canvas/Button", OnButtonSound);
         }
         /// <summary>
         /// 游戏背景音乐开关
         /// </summary>
         void OnButtonMusic()
         {
-            Debug.Log("hello");
+            Debug.Log("music on/off");
         }
         void OnButtonSound()
         {
-
+            Debug.Log("sound on/off");
         }
     }
 }
