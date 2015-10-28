@@ -6,11 +6,6 @@ namespace HiUI
 {
     public class MainUIView : UIView
     {
-        protected override void Init()
-        {
-            path = "Resources/ui/mainui";
-        }
-
         protected override void RegisterMethod()
         {
         }
@@ -29,7 +24,7 @@ namespace HiUI
 
         void test()
         {
-            UIViewManager.Instance.OpenUIView(UIViewManager.Instance.mainView);
+            UIViewManager.Instance.OnUIView(UIViewManager.Instance.mainView);
         }
     }
 }

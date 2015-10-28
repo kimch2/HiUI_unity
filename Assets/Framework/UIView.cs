@@ -13,14 +13,9 @@ namespace HiUI
         void Start()
         {
             animator = GetComponent<Animator>();
-            Init();
             RegisterMethod();
             StartViewAnimation();
         }
-        /// <summary>
-        /// 初始化UIView面板
-        /// </summary>
-        protected abstract void Init();
         /// <summary>
         /// 子类注册方法
         /// </summary>

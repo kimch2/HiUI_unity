@@ -9,10 +9,6 @@ namespace HiUI
     /// </summary>
     public class OpertionUIView : UIView
     {
-        protected override void Init()
-        {
-            path = "Resources/ui/opertionPanel";
-        }
         protected override void RegisterMethod()
         {
             buttonEvenList.Add("Canvas/Button", OnButtonMusic);

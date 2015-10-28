@@ -9,7 +9,7 @@ public class UIViewManager : Singleton<UIViewManager>
 
     Dictionary<UIViewPath, UIView> uiViewList = new Dictionary<UIViewPath, UIView>();
 
-    public void OpenUIView(UIViewPath _path)
+    public void OnUIView(UIViewPath _path)
     {
         if (!(uiViewList.ContainsKey(_path)) || (!uiViewList[_path]))
         {
