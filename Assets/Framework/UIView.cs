@@ -14,7 +14,6 @@ namespace HiUI
         {
             animator = GetComponent<Animator>();
             RegisterMethod();
-            StartView();
         }
         /// <summary>
         /// 子类注册方法
@@ -25,7 +24,7 @@ namespace HiUI
         /// </summary>
         public void StartView()
         {
-            if (animator)
+            if ((animator) && (animator.HasState(0, Animator.StringToHash("Start"))))
                 animator.Play("Start");
         }
         /// <summary>
@@ -33,7 +32,7 @@ namespace HiUI
         /// </summary>
         public void CloseView()
         {
-            if (animator)
+            if ((animator) && (animator.HasState(0, Animator.StringToHash("Exist"))))
                 animator.Play("Exist");
             else
                 gameObject.SetActive(false);

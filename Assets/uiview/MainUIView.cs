@@ -8,9 +8,9 @@ namespace HiUI
     {
         protected override void RegisterMethod()
         {
-            buttonEvenList.Add("Canvas/Panel(main)/Button", OnButtonPlay);
+            buttonEvenList.Add("Canvas/MainUIView/Panel(main)/Button", OnButtonPlay);
 
-            buttonEvenList.Add("Canvas/Panel(main)/Button 1", OnButtonOpertion);
+            buttonEvenList.Add("Canvas/MainUIView/Panel(main)/Button 1", OnButtonOpertion);
         }
 
         void test()
