@@ -10,5 +10,9 @@ namespace HiUI
         {
 
         }
+        void OnButtonTest()
+        {
+
+        }
     }
 }
