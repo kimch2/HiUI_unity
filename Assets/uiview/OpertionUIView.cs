@@ -5,7 +5,7 @@ using System;
 namespace HiUI
 {
     /// <summary>
-    /// 游戏选项面板--------for example
+    /// 游戏选项面板
     /// </summary>
     public class OpertionUIView : UIView
     {
@@ -22,6 +22,13 @@ namespace HiUI
             animator.Play("GameUIViewStartAnimation");
         }
         /// <summary>
+        /// 面板关闭动画
+        /// </summary>
+        protected override void ExistViewAnimation()
+        {
+            animator.Play("GameUIViewExistAnimation");
+        }
+        /// <summary>
         /// 游戏背景音乐开关
         /// </summary>
         void OnButtonMusic()
@@ -32,17 +39,6 @@ namespace HiUI
         {
 
         }
-
-
-        /// <summary>
-        /// 面板关闭动画
-        /// </summary>
-        public override void ExistViewAnimation()
-        {
-            animator.Play("GameUIViewExistAnimation");
-        }
-
-
     }
 }
 

@@ -1,25 +1,47 @@
 ﻿using HiUI;
 using System.Collections.Generic;
-
-public enum UIViewType
+using UnityEngine;
+public class UIViewManager : Singleton<UIViewManager>
 {
-    Main,//主面板
-    Opertion,//选项面板
-    Pause,//暂停游戏面板
-}
-public class UIViewManager
-{
-    Dictionary<UIViewType, UIView> uiViewList = new Dictionary<UIViewType, UIView>();
+    public UIViewPath mainView = new UIViewPath("Resources/ui/main");
+    public UIViewPath opertionView = new UIViewPath("Resources/ui/opertion");
 
 
-    public UIView GetUIView(UIViewType _type)
+    Dictionary<UIViewPath, UIView> uiViewList = new Dictionary<UIViewPath, UIView>();
+
+    public void OpenUIView(UIViewPath _path)
     {
-        if (!(uiViewList.ContainsKey(_type)) && (!uiViewList[_type]))
+        if (!(uiViewList.ContainsKey(_path)) || (!uiViewList[_path]))
         {
-
+            GameObject go = (GameObject)Resources.Load(_path.path);
+            UIView uiView = go.GetComponent<UIView>();
+            uiViewList.Add(_path, uiView);
         }
-
-        return null;
+        Open(uiViewList[_path]);
     }
 
+
+
+    void Open(UIView _uiView)
+    {
+
+    }
+
+
+
+
+
+
+
+
+
+
+    public class UIViewPath
+    {
+        public string path;
+        public UIViewPath(string _path)
+        {
+            path = _path;
+        }
+    }
 }

@@ -5,7 +5,6 @@ namespace HiUI
 {
     public abstract class UIView : MonoBehaviour
     {
-        protected string path;
         protected Animator animator;
         protected Dictionary<string, Action> buttonEvenList = new Dictionary<string, Action>();
         /// <summary>
@@ -19,7 +18,7 @@ namespace HiUI
             StartViewAnimation();
         }
         /// <summary>
-        /// 
+        /// 初始化UIView面板
         /// </summary>
         protected abstract void Init();
         /// <summary>

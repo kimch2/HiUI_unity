@@ -18,5 +18,18 @@ namespace HiUI
         protected override void StartViewAnimation()
         {
         }
+        protected override void ExistViewAnimation()
+        {
+        }
+
+
+
+
+
+
+        void test()
+        {
+            UIViewManager.Instance.OpenUIView(UIViewManager.Instance.mainView);
+        }
     }
 }
