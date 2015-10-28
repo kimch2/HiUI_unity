@@ -8,11 +8,25 @@ namespace HiUI
     {
         protected override void RegisterMethod()
         {
+            buttonEvenList.Add("Canvas/Panel(main)/Button", OnButtonPlay);
+
+            buttonEvenList.Add("Canvas/Panel(main)/Button 1", OnButtonOpertion);
         }
 
         void test()
         {
-            UIViewManager.Instance.OnUIView(UIViewManager.Instance.mainView);
+            UIViewManager.Instance.OpenUIView(UIViewManager.Instance.mainView);
+        }
+
+
+        void OnButtonPlay()
+        {
+            Debug.Log("play game");
+        }
+        void OnButtonOpertion()
+        {
+            CloseView();
+            UIViewManager.Instance.OpenUIView(UIViewManager.Instance.opertionView);
         }
     }
 }

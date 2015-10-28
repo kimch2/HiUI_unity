@@ -1,50 +1,35 @@
 ﻿using HiUI;
 using System.Collections.Generic;
 using UnityEngine;
-public class UIViewManager : Singleton<UIViewManager>
+public class UIViewManager : Singleton_Mono<UIViewManager>
 {
-    public UIViewPath mainView = new UIViewPath("Resources/ui/main");
-    public UIViewPath opertionView = new UIViewPath("Resources/ui/opertion");
+    public Transform uiRoot;
+    public UIViewInfo mainView = new UIViewInfo(" ui/main");
+    public UIViewInfo opertionView = new UIViewInfo("Panel(opertion)");
 
 
-    Dictionary<UIViewPath, UIView> uiViewList = new Dictionary<UIViewPath, UIView>();
-
-    public void OnUIView(UIViewPath _path)
+    private Dictionary<UIViewInfo, UIView> uiViewList = new Dictionary<UIViewInfo, UIView>();
+    public void OpenUIView(UIViewInfo _path)
     {
         if (!(uiViewList.ContainsKey(_path)) || (!uiViewList[_path]))
         {
-            GameObject go = (GameObject)Resources.Load(_path.path);
+            GameObject go = (GameObject)Instantiate(Resources.Load(_path.path));
+            go.transform.SetParent(uiRoot);
+            go.GetComponent<RectTransform>().localPosition = Vector3.zero;
+            go.GetComponent<RectTransform>().sizeDelta = Vector2.zero;
             UIView uiView = go.GetComponent<UIView>();
             uiViewList.Add(_path, uiView);
         }
-        OpenUIView(uiViewList[_path]);
+        uiViewList[_path].gameObject.SetActive(true);
+        uiViewList[_path].StartView();
+        foreach (KeyValuePair<UIViewInfo, UIView> uiView in uiViewList)
+            if ((uiView.Value != uiViewList[_path]) && (uiView.Value.gameObject.activeSelf))
+                uiView.Value.CloseView();
     }
-    void OpenUIView(UIView _uiView)
-    {
-        _uiView.gameObject.SetActive(true);
-        _uiView.StartViewAnimation();
-        foreach (KeyValuePair<UIViewPath, UIView> uiView in uiViewList)
-        {
-            if ((uiView.Value != _uiView) && (uiView.Value.gameObject.activeSelf))
-            {
-                uiView.Value.ExistViewAnimation();
-            }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-    public class UIViewPath
+    public class UIViewInfo
     {
         public string path;
-        public UIViewPath(string _path)
+        public UIViewInfo(string _path)
         {
             path = _path;
         }

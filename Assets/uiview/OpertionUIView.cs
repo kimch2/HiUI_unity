@@ -11,8 +11,9 @@ namespace HiUI
     {
         protected override void RegisterMethod()
         {
-            buttonEvenList.Add("Canvas/Button", OnButtonMusic);
-            buttonEvenList.Add("Canvas/Button", OnButtonSound);
+            buttonEvenList.Add("Canvas/Panel(opertion)/Button", OnButtonMusic);
+            buttonEvenList.Add("Canvas/Panel(opertion) / Button 1", OnButtonSound);
+            buttonEvenList.Add("Canvas/Panel(opertion)/Button 2", OnClose);
         }
         /// <summary>
         /// 游戏背景音乐开关
@@ -24,6 +25,10 @@ namespace HiUI
         void OnButtonSound()
         {
             Debug.Log("sound on/off");
+        }
+        void OnClose()
+        {
+            CloseView();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace HiUI
         {
             animator = GetComponent<Animator>();
             RegisterMethod();
-            StartViewAnimation();
+            StartView();
         }
         /// <summary>
         /// 子类注册方法
@@ -23,21 +23,25 @@ namespace HiUI
         /// <summary>
         /// 面板弹出动画
         /// </summary>
-        public void StartViewAnimation()
+        public void StartView()
         {
-            animator.Play("Start");
+            if (animator)
+                animator.Play("Start");
         }
         /// <summary>
         /// 面板关闭动画
         /// </summary>
-        public void ExistViewAnimation()
+        public void CloseView()
         {
-            animator.Play("Exist");
+            if (animator)
+                animator.Play("Exist");
+            else
+                gameObject.SetActive(false);
         }
         /// <summary>
         /// 面板动画播放完毕后隐藏面板
         /// </summary>
-        protected void ExistViewAnimationCallBack()
+        protected void CloseViewCallBack()
         {
             gameObject.SetActive(false);
         }
