@@ -11,9 +11,9 @@ namespace HiUI
     {
         protected override void RegisterMethod()
         {
-            buttonEvenList.Add("Canvas/Panel(opertion)(Clone)/Button", OnButtonMusic);
-            buttonEvenList.Add("Canvas/Panel(opertion)(Clone)/Button 1", OnButtonSound);
-            buttonEvenList.Add("Canvas/Panel(opertion)(Clone)/Button 2", OnClose);
+            buttonEvenList.Add("Canvas/OpertionUIView/Panel(opertion)/Button", OnButtonMusic);
+            buttonEvenList.Add("Canvas/OpertionUIView/Panel(opertion)/Button 1", OnButtonSound);
+            buttonEvenList.Add("Canvas/OpertionUIView/Panel(opertion)/Button 2", OnClose);
         }
         /// <summary>
         /// 游戏背景音乐开关

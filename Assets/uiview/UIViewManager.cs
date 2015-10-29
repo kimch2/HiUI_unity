@@ -4,8 +4,8 @@ using UnityEngine;
 public class UIViewManager : Singleton_Mono<UIViewManager>
 {
     public Transform uiRoot;
-    public UIViewInfo mainView = new UIViewInfo(" ui/main");
-    public UIViewInfo opertionView = new UIViewInfo("Panel(opertion)");
+    public UIViewInfo mainView = new UIViewInfo("MainUIView");
+    public UIViewInfo opertionView = new UIViewInfo("OpertionUIView");
 
 
     private Dictionary<UIViewInfo, UIView> uiViewList = new Dictionary<UIViewInfo, UIView>();
@@ -14,9 +14,9 @@ public class UIViewManager : Singleton_Mono<UIViewManager>
         if (!(uiViewList.ContainsKey(_path)) || (!uiViewList[_path]))
         {
             GameObject go = (GameObject)Instantiate(Resources.Load(_path.path));
+            go.name = go.name.Replace("(Clone)", "");
             go.transform.SetParent(uiRoot);
-            go.GetComponent<RectTransform>().localPosition = Vector3.zero;
-            go.GetComponent<RectTransform>().sizeDelta = Vector2.zero;
+            go.transform.localPosition = Vector3.zero;
             UIView uiView = go.GetComponent<UIView>();
             uiViewList.Add(_path, uiView);
         }

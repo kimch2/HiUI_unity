@@ -30,6 +30,7 @@ namespace HiUI
         }
         protected override void CloseViewCallBack()
         {
+            gameObject.SetActive(false);
             UIViewManager.Instance.OpenUIView(UIViewManager.Instance.opertionView);
         }
     }
